@@ -1,0 +1,88 @@
+<cheat desc="Reptile Moveset Cycling (Scorpion/Sub-Zero) By Sheikh">
+  <script state="run">
+    <action>temp0 = frame % 2</action>
+    <action condition="temp0 == 0">temp1 = 0x04</action>
+    <action condition="temp0 != 0">temp1 = 0x05</action>
+
+    <action>maincpu.pb@101AC70 = temp1</action>
+    <action>maincpu.pb@101C380 = temp1</action>
+    <action>maincpu.pb@1020100 = temp1</action>
+    <action>maincpu.pb@1015D00 = temp1</action>
+    <action>maincpu.pb@101EC80 = temp1</action>
+    <action>maincpu.pb@10208B0 = temp1</action>
+    <action>maincpu.pb@101FBE0 = temp1</action>
+  </script>
+</cheat>
+
+  <cheat desc="Have Reptile's Speed">
+    <script state="on">
+      <action>temp0 =maincpu.mb@009CF68</action>
+      <action>temp1 =maincpu.mb@009CF6E</action>
+      <action>temp2 =maincpu.mb@009CF98</action>
+      <action>temp3 =maincpu.mb@009CF9E</action>
+    </script>
+    <script state="run">
+      <action>maincpu.mb@009CF68=FC</action>
+      <action>maincpu.mb@009CF6E=FC</action> <!-- ROM Hack -->
+      <action>maincpu.mb@009CF98=04</action>
+      <action>maincpu.mb@009CF9E=04</action>
+    </script>
+    <script state="off">
+      <action>maincpu.mb@009CF68=temp0 </action>
+      <action>maincpu.mb@009CF6E=temp1 </action>
+      <action>maincpu.mb@009CF98=temp2 </action>
+      <action>maincpu.mb@009CF9E=temp3 </action>
+    </script>
+  </cheat>
+
+  <cheat desc="Fatality!! Message Replacement">
+  <comment>Turns "You have defeated Reptile" message into "Fatality!!" By Sheikh</comment>
+  <script state="run">
+    <action>maincpu.mw@0959C0=2020</action>
+    <action>maincpu.mw@0959C2=2020</action>
+    <action>maincpu.mw@0959C4=2020</action>
+    <action>maincpu.mw@0959C6=4146</action>
+    <action>maincpu.mw@0959C8=4154</action>
+    <action>maincpu.mw@0959CA=494C</action>
+    <action>maincpu.mw@0959CC=5954</action>
+    <action>maincpu.mw@0959CE=2120</action>
+    <action>maincpu.mw@0959D0=2021</action>
+    <action>maincpu.mw@0959D2=2020</action>
+    <action>maincpu.mw@0959D4=2020</action>
+    <action>maincpu.mw@0959D6=2020</action>
+    <action>maincpu.mw@0959D8=2020</action>
+    <action>maincpu.mw@0959DA=2020</action>
+  </script>
+ </cheat>
+
+  <cheat desc="Turn CPU Scorpion into Reptile">
+    <script state="run">
+      <action>maincpu.pb@1052940=01</action>
+    </script>
+  </cheat>
+
+
+  <cheat desc="Player Can Look Like Reptile"> <comment>This allows the game to display Scorpion with Reptile's colours for a player-controlled character. Choose Scorpion and enable the 'Turn CPU Scorpion into Reptile' code.</comment>
+    <script state="on">
+      <action>temp0 =maincpu.mw@009CC4C</action>
+    </script>
+    <script state="run">
+      <action>maincpu.mw@009CC4C=0300</action> <!-- FFCE6260 -->
+    </script>
+    <script state="off">
+      <action>maincpu.mw@009CC4C=temp0 </action>
+    </script>
+  </cheat>
+
+<cheat desc="Reptile Wins appears when Scorpion Wins">
+  <comment>Reptile Wins message by Sheikh</comment>
+  <script state="run">
+    <action>maincpu.mw@095BA2=4552</action> 
+    <action>maincpu.mw@095BA4=5450</action> 
+    <action>maincpu.mw@095BA6=4C49</action> 
+    <action>maincpu.mw@095BA8=2045</action> 
+    <action>maincpu.mw@095BAA=4957</action> 
+    <action>maincpu.mw@095BAC=534E</action> 
+    <action>maincpu.mw@095BAE=0020</action> 
+  </script>
+</cheat>
